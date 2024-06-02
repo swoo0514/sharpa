@@ -47,7 +47,8 @@ const createChatCompletion = async (req, res, next) => {
         try {
           const parsed = JSON.parse(message);
           const content = parsed.choices[0].delta?.content || '';
-          res.write(`data: ${content}\n\n`);
+          console.log(content);
+          res.write(content);
         } catch (error) {
           console.error('Could not parse message:', message, error);
         }
@@ -59,7 +60,10 @@ const createChatCompletion = async (req, res, next) => {
         try {
           const parsed = JSON.parse(buffer);
           const content = parsed.choices[0].delta?.content || '';
-          res.write(`data: ${content}\n\n`);
+          setTimeout(() => {
+            console.log(content);
+            res.write(content);
+          }, 1000);
         } catch (error) {
           console.error('Could not parse final buffer:', buffer, error);
         }
