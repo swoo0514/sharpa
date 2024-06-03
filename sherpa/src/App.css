@@ -1,0 +1,65 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-container img {
+  max-height: 50px; /* 로고의 크기를 조정하세요 */
+}
+
+.login-container {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff; /* 버튼 배경색 */
+  color: #fff; /* 버튼 텍스트 색상 */
+  border-radius: 5px;
+}
+
+.login-btn:hover {
+  background-color: #0056b3; /* 버튼 배경색 변경 (호버 시) */
+}
+
+.text-container {
+  margin-top: 300px;
+  text-align: center;
+}
+
+.text-container h3 {
+  margin: 20px 0px;
+  font-size: 40px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 55vh; /* 필요에 따라 높이를 조정하세요 */
+}
+
+.start-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  background-color: #007bff; /* 버튼 배경색 */
+  color: #fff; /* 버튼 텍스트 색상 */
+  border-radius: 5px;
+}
+
+.start-btn:hover {
+  background-color: #0056b3; /* 버튼 배경색 변경 (호버 시) */
+}

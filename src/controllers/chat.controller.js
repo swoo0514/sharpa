@@ -16,7 +16,7 @@ const createChatCompletion = async (req, res, next) => {
       {
         model: 'gpt-3.5-turbo',
         messages: [{ role: 'user', content: roleBasedPrompt }],
-        max_tokens: 100,
+        max_tokens: 50,
         stream: true,
       },
       {
@@ -47,8 +47,7 @@ const createChatCompletion = async (req, res, next) => {
         try {
           const parsed = JSON.parse(message);
           const content = parsed.choices[0].delta?.content || '';
-          console.log(content);
-          res.write(content);
+          res.write(`${content}`);
         } catch (error) {
           console.error('Could not parse message:', message, error);
         }
@@ -60,10 +59,7 @@ const createChatCompletion = async (req, res, next) => {
         try {
           const parsed = JSON.parse(buffer);
           const content = parsed.choices[0].delta?.content || '';
-          setTimeout(() => {
-            console.log(content);
-            res.write(content);
-          }, 1000);
+          res.write(`${content}`);
         } catch (error) {
           console.error('Could not parse final buffer:', buffer, error);
         }

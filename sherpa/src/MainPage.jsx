@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
+
+import SlowDisplay from './components/SlowDisplay';
 
 function MainPage() {
   const [message, setMessage] = useState('');
-  const [botReplies, setBotReplies] = useState([]);
+  const [Replies, setReplies] = useState([]);
 
   const handleChat = async () => {
     if (!message) return;
@@ -12,18 +15,16 @@ function MainPage() {
         userPrompt: message,
       });
 
-      // 서버로부터 받은 응답을 배열에 추가
-      const tokens = response.data.split('');
-      console.log(tokens);
-      setBotReplies((botReplies) => [...botReplies, ...tokens]);
-
+      setReplies((Replies) => [...Replies, response.data]);
       setMessage('');
     } catch (error) {
       console.error('Error during the chat request:', error);
-      setBotReplies((botReplies) => [
-        ...botReplies,
-        'Sorry, an error occurred while trying to get a response. ',
-      ]);
+      setReplies(
+        (Replies = [
+          ...Replies,
+          'Sorry, an error occurred while trying to get a response. ',
+        ])
+      );
     }
   };
 
@@ -38,13 +39,22 @@ function MainPage() {
         />
         <button onClick={handleChat}>Send</button>
       </div>
-      <div>
-        {/* 각 토큰을 하나씩 출력 */}
-        {botReplies.map((token, index) => (
-          <span key={index}>{token}</span>
+      {/* <div>
+        {Replies.map((reply, index) => (
+          <p>{reply}</p>
+        ))}
+      </div> */}
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {/* {displayReplies.map((reply, index) => ( */}
+        {/* // <div key={index}>{reply}</div> */}
+        {/* <div style={{ display: 'flex' }}>
+          <SlowDisplay Replies={Replies} speed={100} /> */}
+        {Replies.map((reply, index) => (
+          <SlowDisplay key={index} text={reply} speed={100} />
         ))}
       </div>
     </div>
+    // </div>
   );
 }
 
