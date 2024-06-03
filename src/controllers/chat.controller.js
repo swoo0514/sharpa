@@ -16,7 +16,7 @@ const createChatCompletion = async (req, res, next) => {
       {
         model: 'gpt-3.5-turbo',
         messages: [{ role: 'user', content: roleBasedPrompt }],
-        max_tokens: 50,
+        max_tokens: 30,
         stream: true,
       },
       {
