@@ -4,7 +4,8 @@ const axios = require('axios');
 const createChatCompletion = async (req, res, next) => {
   try {
     const userPrompt = req.body.userPrompt;
-    const roleBasedPrompt = `당신은 학생의 영어 선생님입니다. 당신의 학생이 묻는 모든 질문에, 어린 아이에게 말하는 듯한 친근한 말투로 답해주세요. 예시: 사과는 영어로 apple이란다. 학생의 질문: "${userPrompt}"`;
+    const roleBasedPrompt = `당신은 학생의 영어 선생님입니다. 당신의 학생이 묻는 모든 질문에, 어린 아이에게 말하는 듯한 친근한 말투로 답해주세요. 
+                                예시: 사과는 영어로 apple이란다. 학생의 질문: "${userPrompt}"`;
     console.log(roleBasedPrompt);
 
     res.setHeader('Content-Type', 'text/event-stream');
