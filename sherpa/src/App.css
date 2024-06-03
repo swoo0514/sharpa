@@ -5,6 +5,10 @@ header {
   padding: 10px 20px;
 }
 
+ul {
+  list-style: none;
+}
+
 .logo-container {
   display: flex;
   align-items: center;
@@ -14,9 +18,22 @@ header {
   max-height: 50px; /* 로고의 크기를 조정하세요 */
 }
 
+.content-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
 .login-container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  border: 1px solid lightgrey;
+  border-radius: 40px;
+  width: 350px;
+  padding: 10px;
+  margin-top: 30px;
 }
 
 .login-btn {
@@ -62,4 +79,43 @@ header {
 
 .start-btn:hover {
   background-color: #0056b3; /* 버튼 배경색 변경 (호버 시) */
+}
+
+/* loginPage */
+
+.local-login {
+  margin-top: 50px;
+}
+
+.local-container {
+  margin: 10px 0px;
+}
+
+.local-input {
+  width: 100%;
+  height: 30px;
+  border-radius: 9px;
+  border: 1px solid grey;
+}
+
+.social-login ul {
+  display: flex;
+  justify-content: space-between; /* Distribute space evenly between the items */
+  list-style-type: none; /* Remove default list styling */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+  margin-bottom: 50px;
+}
+
+.social-login li {
+  /* Optional: Add styling for the list items */
+  width: 50px;
+  height: 50px;
+  margin: 0px 10px;
+  background-color: hwb(0 78% 22%);
+}
+
+.social-desc {
+  text-align: center;
+  margin: 10px 0px;
 }
