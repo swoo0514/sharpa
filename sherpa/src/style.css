@@ -1,5 +1,37 @@
-.test {
-  border: 1px solid red;
-  height: 50px;
-  width: 50%;
+/* MainPage */
+.q_box {
+  width: 60%;
+  height: 20vh;
+  border: 1px dashed black;
+  margin: 0 auto;
+  margin-top: 10vh;
+}
+.a_box {
+  width: 60%;
+  height: 40vh;
+  border: 1px solid salmon;
+  margin: 0 auto;
+  margin-top: 2vh;
+}
+
+.input_box_wrapper {
+  width: 60%;
+  height: 8vh;
+  margin: 0 auto;
+  margin-top: 8vh;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+.input_box {
+  width: 80%;
+  height: 75%;
+  border: none;
+  margin: 8px 0 0 10px;
+}
+
+.send_btn {
+  border-radius: 50%;
+  height: 70%;
+  width: 6%;
+  margin-left: 70px;
 }

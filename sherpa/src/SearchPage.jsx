@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../src/style.css';
 import SlowDisplay from './components/SlowDisplay';
 
-function MainPage() {
+function SearchPage() {
   const [message, setMessage] = useState('');
   const [Replies, setReplies] = useState([]);
   const [userInput, setInput] = useState([]);
@@ -41,30 +41,14 @@ function MainPage() {
 
   return (
     <div>
-      <h1>Chat Bot</h1>
-      <div>
-        <input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button onClick={handleChat}>Send</button>
-      </div>
       <div>
         {conversations.map((conversation, index) => (
           <div key={index}>
-            {conversation.question}
+            <div className="q_box">{conversation.question}</div>
             <br />
             <div>
               <div key={index}>
-                <div
-                  className="test2"
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    border: '1px solid black',
-                  }}
-                >
+                <div className="a_box">
                   <SlowDisplay
                     key={index}
                     text={conversation.answer}
@@ -76,7 +60,22 @@ function MainPage() {
           </div>
         ))}
       </div>
+
+      <div>
+        <div className="input_box_wrapper">
+          <input
+            className="input_box"
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="더 알고 싶은 내용이 있나요?"
+          />
+          <button className="send_btn" onClick={handleChat}>
+            Send
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
-export default MainPage;
+export default SearchPage;
