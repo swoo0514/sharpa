@@ -1,37 +1,93 @@
-/* MainPage */
+/* 질문상자,답변상자*/
 .q_box {
-  width: 60%;
-  height: 20vh;
-  border: 1px dashed black;
+  width: 1022px;
+  height: 157px;
+  border: 3px solid #554d7453;
+  border-radius: 27px;
   margin: 0 auto;
-  margin-top: 10vh;
+  margin-top: 207px;
+  display: flex;
+  flex-direction: r자w;
 }
+
 .a_box {
-  width: 60%;
-  height: 40vh;
-  border: 1px solid salmon;
+  width: 1022px;
+  height: 452px;
+  border: 3px solid #554d7453;
+  border-radius: 27px;
   margin: 0 auto;
-  margin-top: 2vh;
+  margin-top: 20px;
+  display: flex;
+}
+.a_box > div,
+.q_box > div {
+  margin-top: 40px;
+  font-size: 20px;
 }
 
 .input_box_wrapper {
-  width: 60%;
-  height: 8vh;
+  width: 1022px;
+  height: 90px;
   margin: 0 auto;
   margin-top: 8vh;
-  border: 1px solid black;
-  border-radius: 15px;
+  border: 3px solid #554d74;
+  border-radius: 27px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 .input_box {
   width: 80%;
   height: 75%;
   border: none;
   margin: 8px 0 0 10px;
+  font-size: 20px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
 }
-
+/* 프로필 사진 및 도구이미지 부분 */
+.user_prof,
+.sherpa_prof {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin: 25px;
+}
+.sherpa_prof {
+  background-color: #554d7453;
+}
+.user_prof {
+  background-color: #554d74;
+}
+.input_box::placeholder {
+  font-size: 20px;
+}
 .send_btn {
   border-radius: 50%;
-  height: 70%;
-  width: 6%;
-  margin-left: 70px;
+  height: 37px;
+  width: 37px;
+  background-color: #554d74;
+}
+.file,
+.pen,
+.redo {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+}
+.pen {
+  margin-left: 980px;
+  margin-top: 120px;
+}
+.file {
+  margin: 0 10px 0 940px;
+}
+.redo {
+  margin-left: 980px;
+}
+.file,
+.redo {
+  margin-top: 417px;
 }

@@ -3,6 +3,11 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../src/style.css';
 import SlowDisplay from './components/SlowDisplay';
+//image import
+import arrow from '../src/images/arrow.png';
+import file from '../src/images/file-blank.png';
+import pen from '../src/images/pen.png';
+import redo from '../src/images/redo.png';
 
 function SearchPage() {
   const [message, setMessage] = useState('');
@@ -44,16 +49,23 @@ function SearchPage() {
       <div>
         {conversations.map((conversation, index) => (
           <div key={index}>
-            <div className="q_box">{conversation.question}</div>
+            <div className="q_box">
+              <span className="user_prof"></span>
+              <div>{conversation.question}</div>
+              <img className="pen" src={pen} alt="pen" />
+            </div>
             <br />
             <div>
               <div key={index}>
                 <div className="a_box">
+                  <span className="sherpa_prof"></span>
                   <SlowDisplay
                     key={index}
                     text={conversation.answer}
                     speed={100}
                   />
+                  <img className="file" src={file} alt="file" />
+                  <img className="redo" src={redo} alt="file" />
                 </div>
               </div>
             </div>
@@ -71,7 +83,7 @@ function SearchPage() {
             placeholder="더 알고 싶은 내용이 있나요?"
           />
           <button className="send_btn" onClick={handleChat}>
-            Send
+            <img src={arrow} alt="img" />
           </button>
         </div>
       </div>
