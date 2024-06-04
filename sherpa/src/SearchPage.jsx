@@ -19,12 +19,11 @@ function SearchPage() {
   const [userInput, setInput] = useState([]);
   const [conversations, setConversations] = useState([]);
   const messagesEndRef = useRef(null);
-
-  //here
   useEffect(() => {
-    // 컴포넌트가 처음 렌더링될 때 sharedData를 message 상태로 설정
+    // 컴포넌트가 처음 렌더링될 때 shareData를 message 상태로 설정
     if (shareData) {
       setMessage(shareData);
+      handleChat(shareData); // 초기에 shareData로 검색 수행
     }
   }, [shareData]);
 
