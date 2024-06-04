@@ -105,7 +105,7 @@ ul {
   background-color: transparent; /* 버튼 배경색 */
   color: #fff; /* 버튼 텍스트 색상 */
   border-radius: 5px;
-  background-image: url('./img/landing-btn.png');
+  background-image: url('./images/landing-btn.png');
   background-size: cover;
   width: 230px;
   height: 55px;
@@ -177,4 +177,18 @@ ul {
   font-family: 'Allura', cursive;
   font-weight: 400;
   font-style: normal;
+}
+
+/* searchPage */
+
+.open-btn {
+  position: fixed; /* 고정 위치 */
+  left: 20px; /* 화면 왼쪽에 붙임 */
+  top: 50%; /* 상단에서 50% 위치에 배치 */
+  transform: translateY(-50%); /* Y축으로 -50% 이동시켜 중앙 정렬 */
+  /* 기타 스타일 */
+}
+
+.open-img {
+  cursor: pointer;
 }

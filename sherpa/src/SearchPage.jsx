@@ -7,6 +7,7 @@ import arrow from '../src/images/arrow.png';
 import file from '../src/images/file-blank.png';
 import pen from '../src/images/pen.png';
 import redo from '../src/images/redo.png';
+import open from '../src/images/open.png';
 // here
 import { AppContext } from './App';
 
@@ -35,6 +36,12 @@ function SearchPage() {
       handleChat(shareData);
     }
   }, [initialRequestMade, shareData]);
+
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const swipeChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
 
   const handleChat = async (initialMessage) => {
     const currentMessage = initialMessage || message;
@@ -111,7 +118,9 @@ function SearchPage() {
         ))}
         <div ref={messagesEndRef} />
       </div>
-
+      <div className="open-btn" onClick={swipeChat}>
+        <img src={open} className="open-img" />
+      </div>
       <div>
         <div className="input_box_wrapper">
           <input
@@ -119,7 +128,7 @@ function SearchPage() {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder="더 알고 싶은 내용이 있나요?"
+            placeholder="더 궁금한 내용은 없으신가요?"
           />
           <button className="send_btn" onClick={() => handleChat()}>
             <img src={arrow} alt="img" />
