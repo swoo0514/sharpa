@@ -19,15 +19,22 @@ function SearchPage() {
   const [userInput, setInput] = useState([]);
   const [conversations, setConversations] = useState([]);
   const messagesEndRef = useRef(null);
+  const [initialRequestMade, setInitialRequestMade] = useState(false); // 추가된 상태
 
-  // here
+  // 컴포넌트가 처음 렌더링될 때 sharedData를 message 상태로 설정
   useEffect(() => {
-    // 컴포넌트가 처음 렌더링될 때 sharedData를 message 상태로 설정하고 handleChat 호출
-    if (shareData) {
+    if (shareData && !initialRequestMade) {
       setMessage(shareData);
-      handleChat(shareData); // 공유된 데이터를 사용하여 초기 검색 수행
+      setInitialRequestMade(true); // 초기 요청이 이루어졌음을 표시
     }
-  }, [shareData]);
+  }, [shareData, initialRequestMade]);
+
+  // shareData가 설정된 후 handleChat 호출
+  useEffect(() => {
+    if (initialRequestMade && shareData) {
+      handleChat(shareData);
+    }
+  }, [initialRequestMade, shareData]);
 
   const handleChat = async (initialMessage) => {
     const currentMessage = initialMessage || message;
@@ -39,7 +46,7 @@ function SearchPage() {
 
       setReplies((Replies) => [...Replies, response.data]);
       setInput((userInput) => [...userInput, currentMessage]);
-      if (!initialMessage) setMessage('');
+      setMessage('');
       // add
       const newConversation = {
         question: currentMessage,
