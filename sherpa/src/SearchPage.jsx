@@ -2,16 +2,16 @@ import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import '../src/style.css';
 import SlowDisplay from './components/SlowDisplay';
-//image import
+// image import
 import arrow from '../src/images/arrow.png';
 import file from '../src/images/file-blank.png';
 import pen from '../src/images/pen.png';
 import redo from '../src/images/redo.png';
-//here
+// here
 import { AppContext } from './App';
 
 function SearchPage() {
-  //here
+  // here
   const { shareData } = useContext(AppContext);
 
   const [message, setMessage] = useState('');
@@ -19,37 +19,48 @@ function SearchPage() {
   const [userInput, setInput] = useState([]);
   const [conversations, setConversations] = useState([]);
   const messagesEndRef = useRef(null);
-  useEffect(() => {
-    // 컴포넌트가 처음 렌더링될 때 shareData를 message 상태로 설정
-    if (shareData) {
-      setMessage(shareData);
-      handleChat(shareData); // 초기에 shareData로 검색 수행
-    }
-  }, [shareData]);
+  const [initialRequestMade, setInitialRequestMade] = useState(false); // 추가된 상태
 
-  const handleChat = async () => {
-    if (!message) return;
+  // 컴포넌트가 처음 렌더링될 때 sharedData를 message 상태로 설정
+  useEffect(() => {
+    if (shareData && !initialRequestMade) {
+      setMessage(shareData);
+      setInitialRequestMade(true); // 초기 요청이 이루어졌음을 표시
+    }
+  }, [shareData, initialRequestMade]);
+
+  // shareData가 설정된 후 handleChat 호출
+  useEffect(() => {
+    if (initialRequestMade && shareData) {
+      handleChat(shareData);
+    }
+  }, [initialRequestMade, shareData]);
+
+  const handleChat = async (initialMessage) => {
+    const currentMessage = initialMessage || message;
+    if (!currentMessage) return;
     try {
       const response = await axios.post('http://localhost:3001/chat', {
-        userPrompt: message,
+        userPrompt: currentMessage,
       });
 
       setReplies((Replies) => [...Replies, response.data]);
-      setInput([...userInput, message]);
+      setInput((userInput) => [...userInput, currentMessage]);
       setMessage('');
-      //add
-      const newConversation = { question: message, answer: response.data };
+      // add
+      const newConversation = {
+        question: currentMessage,
+        answer: response.data,
+      };
       setConversations((conversations) => [...conversations, newConversation]);
     } catch (error) {
       console.error('Error during the chat request:', error);
-      setReplies(
-        (Replies = [
-          ...Replies,
-          'Sorry, an error occurred while trying to get a response. ',
-        ])
-      );
+      setReplies((Replies) => [
+        ...Replies,
+        'Sorry, an error occurred while trying to get a response.',
+      ]);
       const newConversation = {
-        question: message,
+        question: currentMessage,
         answer: 'Sorry, an error occurred while',
       };
       setConversations((conversations) => [...conversations, newConversation]);
@@ -110,7 +121,7 @@ function SearchPage() {
             onChange={(e) => setMessage(e.target.value)}
             placeholder="더 알고 싶은 내용이 있나요?"
           />
-          <button className="send_btn" onClick={handleChat}>
+          <button className="send_btn" onClick={() => handleChat()}>
             <img src={arrow} alt="img" />
           </button>
         </div>
@@ -118,4 +129,5 @@ function SearchPage() {
     </div>
   );
 }
+
 export default SearchPage;

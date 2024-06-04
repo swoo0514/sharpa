@@ -27,8 +27,8 @@ function Landing2() {
         </header>
 
         <div className="text-container text2">
-          <h3 className="allura-regular">sherpa* 가 원하는</h3>
-          <h3 className="allura-regular">모든 것을 해결해드릴게요.</h3>
+          <h3 className="allura-regular">원하는 느낌에 딱 맞는 답변까지,</h3>
+          <h3 className="allura-regular">sherpa* 가 이끌어 드릴게요.</h3>
         </div>
         <div className="input_container in_contain2">
           <input
@@ -44,11 +44,13 @@ function Landing2() {
           />
         </div>
         <div className="toggleswitch text2">
-          <span>가볍게 요청</span>
           <div className="switch_itself switch2" onClick={clickToggle}>
             <div className="switch_circle circle2"></div>
           </div>
-          <span>정밀 요청</span>
+          <span>
+            대화 내용을 기억하여 더 정밀하게 요청하고 뛰어난 답변을 받을 수
+            있어요.
+          </span>
         </div>
       </div>
     </div>

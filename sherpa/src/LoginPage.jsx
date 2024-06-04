@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './App.css';
+import naver from '../src/images/naver.png';
+import kakao from '../src/images/kakao.png';
+import google from '../src/images/google.png';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -62,10 +65,15 @@ function LoginPage() {
             <div className="social-login">
               <div className="social-desc text-color">소셜미디어로 로그인</div>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  <img src={naver} />
+                </li>
+                <li>
+                  <img src={kakao} />
+                </li>
+                <li>
+                  <img src={google} />
+                </li>
               </ul>
             </div>
           </div>

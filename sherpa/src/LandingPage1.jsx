@@ -8,7 +8,7 @@ import arrow from '../src/images/arrow2.png';
 import App, { AppContext } from './App';
 
 function Landing1() {
-  //Data를 다른 페이지로 넘기기 위한 장치
+  //Data를 다른 페이지로 넘기기 위한 장치 o
   const { setShareData } = useContext(AppContext);
   const [inputValue, setInputValue] = useState('');
   const handleInputChange = (e) => {
@@ -39,8 +39,8 @@ function Landing1() {
         <div className="logo-container allura-regular">sherpa*</div>
       </header>
 
-      <div className="text-container">
-        <h3 className="allura-regular">필요한 내용만 하나하나 바로,</h3>
+      <div className="text-container text1">
+        <h3 className="allura-regular">필요한 내용만 하나씩 바로바로,</h3>
         <h3 className="allura-regular">
           가볍고 빠르게 sherpa* 에게 질문해보세요.
         </h3>
@@ -62,11 +62,10 @@ function Landing1() {
         />
       </div>
       <div className="toggleswitch">
-        <span>가볍게 요청</span>
         <div className="switch_itself" onClick={clickToggle}>
           <div className="switch_circle"></div>
         </div>
-        <span>정밀 요청</span>
+        <span>대화 내용을 기억하지 않아 가볍게 요청할 수 있어요.</span>
       </div>
     </div>
   );
