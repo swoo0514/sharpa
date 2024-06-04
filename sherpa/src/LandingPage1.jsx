@@ -1,23 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './style.css';
 import './App.css';
 import arrow from '../src/images/arrow2.png';
 
+import App, { AppContext } from './App';
+
 function Landing1() {
+  //Data를 다른 페이지로 넘기기 위한 장치
+  const { setShareData } = useContext(AppContext);
+  const [inputValue, setInputValue] = useState('');
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    setShareData(inputValue);
+    navigate('/search');
+  };
+  //here
   const navigate = useNavigate();
   const [Toggle, setToggle] = useState(false);
-  const [Arrow, setArrow] = useState(false);
+  // const [Arrow, setArrow] = useState(false);
 
   const clickToggle = () => {
     setToggle(true);
     navigate('/land2');
   };
-  const clickArrow = () => {
-    setArrow(true);
-    navigate('/search');
-  };
+  // const clickArrow = () => {
+  //   setArrow(true);
+  //   navigate('/search');
+  // };
 
   return (
     <div className="last-box">
@@ -36,12 +50,15 @@ function Landing1() {
           className="inputbox"
           type="text"
           placeholder="무엇이든 물어보거나 요청해주세요"
+          //here
+          value={inputValue}
+          onChange={handleInputChange}
         />
         <img
           style={{ width: '30px', height: '26px' }}
           src={arrow}
           alt="arrowimg"
-          onClick={clickArrow}
+          onClick={handleSubmit}
         />
       </div>
       <div className="toggleswitch">

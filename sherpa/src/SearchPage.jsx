@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import '../src/style.css';
 import SlowDisplay from './components/SlowDisplay';
@@ -7,13 +7,26 @@ import arrow from '../src/images/arrow.png';
 import file from '../src/images/file-blank.png';
 import pen from '../src/images/pen.png';
 import redo from '../src/images/redo.png';
+//here
+import { AppContext } from './App';
 
 function SearchPage() {
+  //here
+  const { shareData } = useContext(AppContext);
+
   const [message, setMessage] = useState('');
   const [Replies, setReplies] = useState([]);
   const [userInput, setInput] = useState([]);
   const [conversations, setConversations] = useState([]);
   const messagesEndRef = useRef(null);
+
+  //here
+  useEffect(() => {
+    // 컴포넌트가 처음 렌더링될 때 sharedData를 message 상태로 설정
+    if (shareData) {
+      setMessage(shareData);
+    }
+  }, [shareData]);
 
   const handleChat = async () => {
     if (!message) return;
