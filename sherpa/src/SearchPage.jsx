@@ -8,6 +8,7 @@ import file from '../src/images/file-blank.png';
 import pen from '../src/images/pen.png';
 import redo from '../src/images/redo.png';
 import open from '../src/images/open.png';
+import { useNavigate } from 'react-router-dom';
 // here
 import { AppContext } from './App';
 
@@ -21,6 +22,12 @@ function SearchPage() {
   const [conversations, setConversations] = useState([]);
   const messagesEndRef = useRef(null);
   const [initialRequestMade, setInitialRequestMade] = useState(false); // 추가된 상태
+
+  const navigate = useNavigate();
+
+  function goHome() {
+    navigate('/land2');
+  }
 
   // 컴포넌트가 처음 렌더링될 때 sharedData를 message 상태로 설정
   useEffect(() => {
@@ -84,7 +91,12 @@ function SearchPage() {
   return (
     <div>
       <header>
-        <div className="logo-container allura-regular text-color">sherpa*</div>
+        <div
+          className="logo-container allura-regular text-color"
+          onClick={goHome}
+        >
+          sherpa*
+        </div>
       </header>
       <div>
         {conversations.map((conversation, index) => (

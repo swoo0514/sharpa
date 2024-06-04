@@ -8,6 +8,7 @@ import LandingPage from './LandingPage';
 import LoginPage from './LoginPage';
 import Landing1 from './LandingPage1';
 import Landing2 from './LandingPage2';
+import Collab from './Collab';
 
 export const AppContext = createContext();
 //here
@@ -24,6 +25,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/land1" element={<Landing1 />} />
               <Route path="land2" element={<Landing2 />} />
+              <Route path="collab" element={<Collab />} />
             </Routes>
           </BrowserRouter>
         </AppContext.Provider>

@@ -17,9 +17,7 @@ input {
 .last-box {
   height: 1080px;
 }
-body {
-  /* overflow: hidden; */
-}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -31,11 +29,17 @@ ul {
   list-style: none;
 }
 
-.logo-container {
+.logo-container,
+.logo-container2 {
   display: flex;
   align-items: center;
   color: #453d66;
   font-size: 64px;
+  cursor: pointer;
+}
+
+.logo-container2 {
+  color: #fff;
 }
 
 .logo-container img {
@@ -46,6 +50,18 @@ ul {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #554d74;
+  border-radius: 40px;
+  width: 430px;
+  padding: 10px;
+  margin-top: 30px;
 }
 
 .login-container {
@@ -191,4 +207,102 @@ ul {
 
 .open-img {
   cursor: pointer;
+}
+
+.wrap {
+  width: 1920px;
+  height: 1080px;
+  background-color: #554d74;
+}
+
+.collab-text-container {
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.second {
+  position: relative;
+  top: -30px;
+}
+
+.collab-text-container h3 {
+  font-size: 64px;
+  font-weight: bolder;
+  color: #fff;
+  margin: 0px;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+}
+
+.config-container {
+  position: relative;
+  width: 595px;
+  height: 445px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  margin: 0 auto;
+
+  background-color: #edecf4;
+  padding: 35px;
+}
+
+.config-desc-container {
+  text-align: left;
+}
+
+.config-container h3 {
+  font-size: 26px;
+  color: #453d66;
+  word-spacing: 2px;
+}
+
+.config-container p {
+  color: #453d66;
+  margin: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.main-container {
+  width: 525px;
+  height: 51px;
+  border: 1px solid #767676;
+  border-radius: 15px;
+  margin: 22px 0px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.big-title {
+  color: #453d66;
+  margin: left 10px;
+  font-size: 16px;
+  width: 105px;
+  font-weight: 900;
+}
+
+.small-title {
+  color: #767676;
+  letter-spacing: -1px;
+  font-size: 12px;
+  width: 390px;
+  white-space: pre-line; /* 줄바꿈을 허용 */
+}
+
+.right-arrow-btn {
+  margin-left: 60px;
+  position: absolute;
+  right: 15px;
+}
+
+.next-skip-container {
+  text-align: center;
+  padding: 50px;
 }
