@@ -6,6 +6,8 @@ import './App.css';
 import SearchPage from './SearchPage';
 import LandingPage from './LandingPage';
 import LoginPage from './LoginPage';
+import Landing1 from './LandingPage1';
+import Landing2 from './LandingPage2';
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
           <Routes>
             <Route path="/search" element={<SearchPage />} />
             <Route path="/" element={<LandingPage />} />
-            {/* <Route path="/main" element={<MainPage />} /> */}
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/land1" element={<Landing1 />} />
+            <Route path="land2" element={<Landing2 />} />
           </Routes>
         </BrowserRouter>
       </div>

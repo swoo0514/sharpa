@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import '../src/style.css';
 import SlowDisplay from './components/SlowDisplay';
@@ -14,6 +13,7 @@ function SearchPage() {
   const [Replies, setReplies] = useState([]);
   const [userInput, setInput] = useState([]);
   const [conversations, setConversations] = useState([]);
+  const messagesEndRef = useRef(null);
 
   const handleChat = async () => {
     if (!message) return;
@@ -44,8 +44,18 @@ function SearchPage() {
     }
   };
 
+  // Scroll to bottom when a new message is added
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [conversations]);
+
   return (
     <div>
+      <header>
+        <div className="logo-container allura-regular text-color">sherpa*</div>
+      </header>
       <div>
         {conversations.map((conversation, index) => (
           <div key={index}>
@@ -58,7 +68,12 @@ function SearchPage() {
             <div>
               <div key={index}>
                 <div className="a_box">
-                  <span className="sherpa_prof"></span>
+                  <span
+                    className="sherpa_prof allura-regular text-color"
+                    style={{ fontSize: '30px' }}
+                  >
+                    <p style={{ margin: '0 14px', color: '#453d66' }}>s*</p>
+                  </span>
                   <SlowDisplay
                     key={index}
                     text={conversation.answer}
@@ -71,6 +86,7 @@ function SearchPage() {
             </div>
           </div>
         ))}
+        <div ref={messagesEndRef} />
       </div>
 
       <div>
