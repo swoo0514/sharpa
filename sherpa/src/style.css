@@ -43,6 +43,7 @@
   margin: 8px 0 0 10px;
   font-size: 20px;
   border: none;
+  background-color: #edecf4;
   &:focus {
     outline: none;
   }
@@ -63,6 +64,7 @@
 }
 .input_box::placeholder {
   font-size: 20px;
+  background-color: #edecf4;
 }
 .send_btn {
   border-radius: 50%;
@@ -90,4 +92,86 @@
 .file,
 .redo {
   margin-top: 417px;
+}
+
+/* ---------------------------------------------------
+LandingPage1 */
+
+.input_container {
+  width: 812px;
+  height: 68px;
+  border: 3px solid #554d74;
+  border-radius: 27px;
+  margin: 0 auto;
+  margin-top: 79px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 2px 5px 5px #554d74;
+  background-color: #edecf4;
+}
+.inputbox {
+  width: 80%;
+  height: 85%;
+  background-color: #edecf4;
+  font-size: 20px;
+}
+.toggleswitch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 26px;
+  font-size: 20px;
+}
+.toggleswitch span {
+  margin: 0 18px 0 18px;
+}
+.switch_itself {
+  width: 51px;
+  height: 25px;
+  background-color: #554d7453;
+  border-radius: 20px;
+}
+.switch2 {
+  background-color: white;
+}
+.switch_circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+}
+.circle2 {
+  margin-left: 26px;
+  background-color: #554d74;
+}
+.text2 {
+  color: white;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  background-color: #554d74;
+}
+.in_contain2 {
+  border: 3px solid white;
+  border-radius: 27px;
+  /* background-color: EDECF4; */
+}
+.input_box2 {
+  width: 80%;
+  height: 85%;
+  background-color: #edecf4;
+  font-size: 20px;
+}
+.input_box2::placeholder {
+  color: #554d74;
 }

@@ -15,7 +15,7 @@ function LoginPage() {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (validateEmail(email)) {
-      navigate('/search');
+      navigate('/land1');
     } else {
       setIsEmailValid(false);
     }
