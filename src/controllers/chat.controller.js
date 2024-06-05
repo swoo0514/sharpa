@@ -71,7 +71,6 @@ const createChatCompletion = async (req, res, next) => {
     next(error);
   }
 };
-
 module.exports = {
   createChatCompletion,
 };
